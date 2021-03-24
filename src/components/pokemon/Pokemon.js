@@ -254,7 +254,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.hp}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
@@ -266,7 +266,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.attack}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
@@ -278,7 +278,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.defense}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
@@ -290,7 +290,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.speed}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
@@ -302,7 +302,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.specialAttack}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
@@ -314,7 +314,7 @@ export default class Pokemon extends Component {
                     <progress
                         className="nes-progress"
                         value={this.state.stats.specialDefense}
-                        max="100"
+                        max="255"
                       >
                     </progress>
                   </div>
