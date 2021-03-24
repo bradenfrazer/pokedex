@@ -409,7 +409,7 @@ export default class Pokemon extends Component {
                         aria-valuemin="0"
                         aria-valuemax="100"
                       >
-                        <small>{this.state.genderRatioFemale}</small>
+                        <small>{this.state.genderRatioFemale}%</small>
                       </div>
                       <div
                         class="progress-bar"
@@ -422,7 +422,7 @@ export default class Pokemon extends Component {
                         aria-valuemin="0"
                         aria-valuemax="100"
                       >
-                        <small>{this.state.genderRatioMale}</small>
+                        <small>{this.state.genderRatioMale}%</small>
                       </div>
                     </div>
                   </div>
