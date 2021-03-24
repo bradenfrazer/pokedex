@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import './PressStart2P-Regular.ttf';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "nes.css/css/nes.min.css";
 import './App.css';
 import NavBar from './components/layout/NavBar';
