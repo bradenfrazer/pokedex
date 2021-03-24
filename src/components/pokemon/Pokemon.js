@@ -26,7 +26,9 @@ export default class Pokemon extends Component {
   state = {
     name: "",
     pokemonIndex: "",
-    imageURL: "",
+    frontURL: "",
+    shinyURL: "",
+    backURL: "",
     types: [],
     description: "",
     stats: {
@@ -58,7 +60,9 @@ export default class Pokemon extends Component {
     const pokemonRes = await axios.get(pokemonURL);
 
     const name = pokemonRes.data.name;
-    const imageURL = pokemonRes.data.sprites.front_default;
+    const frontURL = pokemonRes.data.sprites.front_default;
+    const shinyURL = pokemonRes.data.sprites.front_shiny;
+    const backURL = pokemonRes.data.sprites.back_default;
 
     let { hp, attack, defense, speed, specialAttack, specialDefense } = "";
 
@@ -162,7 +166,9 @@ export default class Pokemon extends Component {
     });
 
     this.setState({
-      imageURL,
+      frontURL,
+      shinyURL,
+      backURL,
       pokemonIndex,
       name,
       types,
@@ -216,11 +222,24 @@ export default class Pokemon extends Component {
             <div className="row align-items-center">
               <div className="col-md-3">
                 <img
-                  src={this.state.imageURL}
+                  src={this.state.frontURL}
                   className="card-img-top rounded mx-auto mt-2"
                 />
+                <p className="text-center">Default</p>
               </div>
-              <div className="col-md-9">
+              <div className="col-md-2">
+                <img
+                  src={this.state.shinyURL}
+                  className="card-img-top rounded mx-auto mt-2"
+                />
+                <p className="text-center">Shiny</p>
+                <img
+                  src={this.state.backURL}
+                  className="card-img-top rounded mx-auto mt-2"
+                />
+                <p className="text-center">Back</p>
+              </div>
+              <div className="col-md-7">
                 <h4 className="mx-auto">
                   {this.state.name
                     .toLowerCase()
