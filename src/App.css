@@ -3,12 +3,11 @@
   background-position: center;
   background-repeat: repeat;
   background-color: #fafafa;
-  padding-top: 4rem;
   min-height: 100vh;
 }
 
-.bg-dark {
-  background-color: rgba(45,45,45,0.875) !important;
+.navbar {
+  border-bottom: 5px solid #000 !important;
 }
 
 .card-header {
@@ -16,4 +15,10 @@
   border: 0;
   position: absolute;
   width: 100%;
+}
+
+img { image-rendering: pixelated; }
+
+.nes-progress {
+  height: 20px;
 }
