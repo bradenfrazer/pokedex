@@ -4,7 +4,7 @@ import styled from "styled-components";
 import spinner from "../pokemon/spinner.gif";
 
 const Sprite = styled.img`
-    width: 5em;
+    max-width: 128px;
     display: none;
 `;
 
@@ -45,7 +45,7 @@ export default class PokemonCard extends Component {
     componentDidMount() {
         const {name, url} = this.props;
         const pokemonIndex = url.split("/")[url.split('/').length - 2];
-        const imageURL = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png?raw=true`;
+        const imageURL = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
         this.setState({
             name,
             imageURL,
