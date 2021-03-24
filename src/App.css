@@ -7,6 +7,13 @@
   min-height: 100vh;
 }
 
-.navbar {
-  background-color: #ef5350 !important;
+.bg-dark {
+  background-color: rgba(45,45,45,0.875) !important;
+}
+
+.card-header {
+  background: none;
+  border: 0;
+  position: absolute;
+  width: 100%;
 }

@@ -9,10 +9,10 @@ const Sprite = styled.img`
 `;
 
 const Card = styled.div`
-    box-shadow: 0 1px 3px rgba(0,0,0,0.125), 0 1px 2px rgba(0,0,0,0.25);
+    box-shadow: 0 1px 3px rgba(25,25,25,0.125), 0 1px 2px rgba(25,25,25,0.25);
     transition: all 0.3s cubic-bezier(0.25, 0.8, .25, 1);
     &:hover {
-        box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.5);
+        box-shadow: 0 15px 30px rgba(25,25,25,0.25), 0 10px 10px rgba(25,25,25,0.5);
     }
     -moz-user-select: none;
     -website-user-select: none;
@@ -58,9 +58,9 @@ export default class PokemonCard extends Component {
         return (
             <div className="col-md-3 col-sm-6 mb-5">
                 <StyledLink to={`pokemon/${this.state.pokemonIndex}`}>
-                    <Card className="card">
+                    <Card className="card text-white bg-dark">
                         <div className="card-header">
-                            <h5>{this.state.pokemonIndex}</h5>
+                            <p>#{this.state.pokemonIndex}</p>
                         </div>
                         { this.state.imageLoading ? (
                             <img src={spinner} style={{width: '5em', height: '5em'}} className="card-img-top rounded mx-auto d-block mt-2"></img>
@@ -81,7 +81,7 @@ export default class PokemonCard extends Component {
                             <span className="badge badge-danger mt-2">Too many requests</span>
                         </h6>) : null }
                         <div className="card-body mx-auto">
-                            <h6 className="card-title">
+                            <h5 className="card-title">
                                 { this.state.name
                                 .toLowerCase()
                                 .split(" ")
@@ -90,7 +90,7 @@ export default class PokemonCard extends Component {
                                     )
                                     .join(' ')
                                 } 
-                            </h6>
+                            </h5>
                         </div>
                     </Card>
                 </StyledLink>
