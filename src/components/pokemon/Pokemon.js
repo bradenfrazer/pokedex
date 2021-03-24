@@ -190,7 +190,7 @@ export default class Pokemon extends Component {
   render() {
     return (
       <div className="col">
-        <div className="card nes-container with-title">
+        <div className="bg-white nes-container with-title">
             <h5 className="title">#{this.state.pokemonIndex}</h5>
             <div className="row align-items-center">
               <div className="col-md-3">
