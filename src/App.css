@@ -6,19 +6,25 @@
   min-height: 100vh;
 }
 
-.navbar {
-  border-bottom: 5px solid #000 !important;
+body {
+  font-size: 12px !important;
 }
 
-.card-header {
-  background: none;
-  border: 0;
-  position: absolute;
-  width: 100%;
+nav {
+  border-bottom: 5px solid #000 !important;
+  background: #212529;
+}
+
+nav a { transition: 0.3s ease;}
+
+nav a:hover {
+  text-decoration: none;
+  opacity: 0.5;
+
 }
 
 img { image-rendering: pixelated; }
 
 .nes-progress {
-  height: 20px;
+  height: 1.5em;
 }

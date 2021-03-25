@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export default class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-md navbar-dark text-white bg-dark mb-5"><a className="navbar-brand col-sm-3 col md-2 mr-0 align-items-center" href="/">Pokedex</a></nav>
+                <nav className="mb-4 p-4">
+                    <div className="container mx-auto">
+                    <Link to="/"><span className="nes-text is-error text-lg">Pokedex</span></Link>
+                    </div>
+                </nav>
             </div>
         )
     }

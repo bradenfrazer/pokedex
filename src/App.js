@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import './PressStart2P-Regular.ttf';
-
 import "nes.css/css/nes.min.css";
 import './App.css';
 import NavBar from './components/layout/NavBar';
@@ -15,7 +14,7 @@ class App extends Component {
       <Router>
         <div className="App" style={{background: `url(${backgroundImage})`}}>
           <NavBar />
-          <div className="container">
+          <div className="container mx-auto px-4">
             <Switch>
               <Route exact path ="/" component={Dashboard} />
               <Route exact path ="/pokemon/:pokemonIndex" component={Pokemon} />

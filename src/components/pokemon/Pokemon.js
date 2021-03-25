@@ -189,32 +189,12 @@ export default class Pokemon extends Component {
 
   render() {
     return (
-      <div className="col">
         <div className="bg-white nes-container with-title">
             <h5 className="title">#{this.state.pokemonIndex}</h5>
-            <div className="row align-items-center">
-              <div className="col-md-3">
-                <img
-                  src={this.state.frontURL}
-                  className="card-img-top rounded mx-auto"
-                />
-                <p className="text-center"><small>Default</small></p>
-              </div>
-              <div className="col-md-2">
-                <img
-                  src={this.state.shinyURL}
-                  className="card-img-top rounded mx-auto"
-                />
-                <p className="text-center"><small>Shiny</small></p>
-                <img
-                  src={this.state.backURL}
-                  className="card-img-top rounded mx-auto"
-                />
-                <p className="text-center"><small>Back</small></p>
-              </div>
-              <div className="col-md-7">
-                  <div className="row">
-                        <div className="col-md-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 md:gap-8 items-center">
+                <div className="sm:col-span-2 md:col-span-3 md:order-3">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
                             <h4 className="mx-auto">
                             {this.state.name
                                 .toLowerCase()
@@ -223,10 +203,9 @@ export default class Pokemon extends Component {
                                 .join(" ")}
                             </h4>
                         </div>
-                        <div className="col-md-6">
-                            <div className="float-right">
+                        <div className="lg:flex lg:justify-end">
                             {this.state.types.map((type) => (
-                                <div className="nes-badge pr-1"> 
+                                <div className="nes-badge"> 
                                     <span
                                     key={type}
                                     className="is-primary"
@@ -244,171 +223,182 @@ export default class Pokemon extends Component {
                                     </span>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                    <div className="my-4">
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">HP</div>
+                            <div className="col-span-1">{this.state.stats.hp}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.hp}
+                                    max="255"
+                                >
+                                </progress>
                             </div>
                         </div>
-                  </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">HP</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.hp}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.hp}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">Attack</div>
+                            <div className="col-span-1">{this.state.stats.attack}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.attack}
+                                    max="255"
+                                >
+                                </progress>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">Defense</div>
+                            <div className="col-span-1">{this.state.stats.defense}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.defense}
+                                    max="255"
+                                >
+                                </progress>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">Speed</div>
+                            <div className="col-span-1">{this.state.stats.speed}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.speed}
+                                    max="255"
+                                >
+                                </progress>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">Sp. Atk.</div>
+                            <div className="col-span-1">{this.state.stats.specialAttack}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.specialAttack}
+                                    max="255"
+                                >
+                                </progress>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-6 gap-4">
+                            <div className="col-span-2">Sp. Def.</div>
+                            <div className="col-span-1">{this.state.stats.specialDefense}</div>
+                            <div className="col-span-3 items-center">
+                                <progress
+                                    className="nes-progress"
+                                    value={this.state.stats.specialDefense}
+                                    max="255"
+                                >
+                                </progress>
+                            </div>
+                        </div>
+                    </div>
+                    <p className="text-center"><small>Base Stats</small></p>
                 </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">Attack</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.attack}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.attack}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
+                <div className="sm:col-span-1 md:col-span-2 md:order-1">
+                    <img
+                    src={this.state.frontURL}
+                    className="card-img-top rounded mx-auto w-full"
+                    />
+                    <p className="text-center"><small>Default</small></p>
                 </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">Defense</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.defense}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.defense}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
-                </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">Speed</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.speed}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.speed}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
-                </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">Sp. Atk.</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.specialAttack}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.specialAttack}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
-                </div>
-                <div className="row align-items-center">
-                  <div className="col-12 col-md-3">Sp. Def.</div>
-                  <div className="col-12 col-md-9 d-flex align-items-center">
-                    <p className="mr-2 mb-0">{this.state.stats.specialDefense}</p>
-                    <progress
-                        className="nes-progress"
-                        value={this.state.stats.specialDefense}
-                        max="255"
-                      >
-                    </progress>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12 w-100">
-                <div className="nes-container with-title is-rounded">
-                  <p className="title">Description</p>
-                  <p>{this.state.description}</p>
-                </div>
-              </div>
-            </div>
-          <hr />
-            <h5 class="card-title text-center">Profile</h5>
-            <div className="row">
-              <div className="col-md-6">
-                <div className="row">
-                  <div className="col-6">
-                    <p className="float-right">Height:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.height} ft.</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">Weight:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.weight} lbs</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">Catch Rate:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.catchRate}%</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">Gender Ratio:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="mr-2 mb-0">{this.state.genderRatioFemale}% Female</p>
-                    <progress
-                            className="nes-progress is-error"
-                            value={this.state.genderRatioFemale}
-                            max="100"
-                    >
-                    </progress>
-                    <p className="mr-2 mb-0">{this.state.genderRatioMale}% Male</p>
-                    <progress
-                            className="nes-progress is-primary"
-                            value={this.state.genderRatioMale}
-                            max="100"
-                    >
-                    </progress>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="row">
-                  <div className="col-6">
-                    <p className="float-right">Egg Groups:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.eggGroups} </p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">Hatch Steps:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.hatchSteps}</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">Abilities:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.abilities}</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-right">EVs:</p>
-                  </div>
-                  <div className="col-6">
-                    <p className="float-left">{this.state.evs}</p>
-                  </div>
-                </div>
+                <div className="sm:col-span-1 md:col-span-1 md:order-2 grid grid-cols-2 md:grid-cols-1">
+                    <div>
+                        <img
+                        src={this.state.backURL}
+                        className="card-img-top rounded mx-auto w-full"
+                        />
+                        <p className="text-center"><small>Back</small></p>
+                    </div>
+                    <div>
+                        <img
+                        src={this.state.shinyURL}
+                        className="card-img-top rounded mx-auto w-full"
+                        />
+                        <p className="text-center"><small>Shiny</small></p>
+                    </div>
               </div>
             </div>
-          <p class="text-muted">
+            <div className="nes-container with-title is-rounded">
+                <p className="title">Description</p>
+                <p>{this.state.description}</p>
+            </div>
+            <hr />
+            <div className="nes-container with-title my-4">
+                <p className="title">Profile</p>
+
+                <div class="nes-table-responsive grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                    <table class="nes-table">
+                        <tbody>
+                        <tr>
+                            <td>Height:</td>
+                            <td>{this.state.height} ft.</td>
+                        </tr>
+                        <tr>
+                            <td>Weight:</td>
+                            <td>{this.state.weight} lbs</td>
+                        </tr>
+                        <tr>
+                            <td>Catch Rate:</td>
+                            <td>{this.state.catchRate}%</td>
+                        </tr>
+                        <tr>
+                            <td>Gender Ratio:</td>
+                            <td>
+                                <span>{this.state.genderRatioFemale}% Female</span>
+                                <progress
+                                        className="nes-progress is-error"
+                                        value={this.state.genderRatioFemale}
+                                        max="100"
+                                >
+                                </progress>
+                                <span>{this.state.genderRatioMale}% Male</span>
+                                <progress
+                                        className="nes-progress is-primary"
+                                        value={this.state.genderRatioMale}
+                                        max="100"
+                                >
+                                </progress>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="nes-table">
+                        <tbody>
+                        <tr>
+                            <td>Egg Groups:</td>
+                            <td>{this.state.eggGroups}</td>
+                        </tr>
+                        <tr>
+                            <td>Hatch Steps:</td>
+                            <td>{this.state.hatchSteps}</td>
+                        </tr>
+                        <tr>
+                            <td>Abilities:</td>
+                            <td>{this.state.abilities}</td>
+                        </tr>
+                        <tr>
+                            <td>EVs:</td>
+                            <td>{this.state.evs}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <p className="text-gray-500 pt-4">
             <small>Data From{" "}
                 <a href="https://pokeapi.co/" target="_blank" className="card-link">
                 PokeAPI.co
                 </a>
             </small>
-          </p>
-        </div>
-      </div>
+        </p>
+    </div>
     );
   }
 }
