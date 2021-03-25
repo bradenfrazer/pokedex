@@ -26,9 +26,9 @@ export default class Pokemon extends Component {
   state = {
     name: "",
     pokemonIndex: "",
-    frontURL: "",
-    shinyURL: "",
-    backURL: "",
+    frontUrl: "",
+    shinyUrl: "",
+    backUrl: "",
     types: [],
     description: "",
     stats: {
@@ -52,17 +52,17 @@ export default class Pokemon extends Component {
   async componentDidMount() {
     const { pokemonIndex } = this.props.match.params;
 
-    // urls for pokemon info
-    const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
-    const pokemonSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
+    // Urls for pokemon info
+    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
+    const pokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
 
     //get pokemon info
-    const pokemonRes = await axios.get(pokemonURL);
+    const pokemonRes = await axios.get(pokemonUrl);
 
     const name = pokemonRes.data.name;
-    const frontURL = pokemonRes.data.sprites.front_default;
-    const shinyURL = pokemonRes.data.sprites.front_shiny;
-    const backURL = pokemonRes.data.sprites.back_default;
+    const frontUrl = pokemonRes.data.sprites.front_default;
+    const shinyUrl = pokemonRes.data.sprites.front_shiny;
+    const backUrl = pokemonRes.data.sprites.back_default;
 
     let { hp, attack, defense, speed, specialAttack, specialDefense } = "";
 
@@ -128,7 +128,7 @@ export default class Pokemon extends Component {
 
     //get Pokemon description, catch rate, egg groups, gender ratios, and hatch steps
 
-    await axios.get(pokemonSpeciesURL).then((res) => {
+    await axios.get(pokemonSpeciesUrl).then((res) => {
       let description = "";
       res.data.flavor_text_entries.some((flavor) => {
         if (flavor.language.name === "en") {
@@ -166,9 +166,9 @@ export default class Pokemon extends Component {
     });
 
     this.setState({
-      frontURL,
-      shinyURL,
-      backURL,
+      frontUrl,
+      shinyUrl,
+      backUrl,
       pokemonIndex,
       name,
       types,
@@ -303,7 +303,7 @@ export default class Pokemon extends Component {
                 </div>
                 <div className="sm:col-span-1 md:col-span-2 md:order-1">
                     <img
-                    src={this.state.frontURL}
+                    src={this.state.frontUrl}
                     className="card-img-top rounded mx-auto w-full"
                     />
                     <p className="text-center"><small>Default</small></p>
@@ -311,14 +311,14 @@ export default class Pokemon extends Component {
                 <div className="sm:col-span-1 md:col-span-1 md:order-2 grid grid-cols-2 md:grid-cols-1">
                     <div>
                         <img
-                        src={this.state.backURL}
+                        src={this.state.backUrl}
                         className="card-img-top rounded mx-auto w-full"
                         />
                         <p className="text-center"><small>Back</small></p>
                     </div>
                     <div>
                         <img
-                        src={this.state.shinyURL}
+                        src={this.state.shinyUrl}
                         className="card-img-top rounded mx-auto w-full"
                         />
                         <p className="text-center"><small>Shiny</small></p>
@@ -351,20 +351,26 @@ export default class Pokemon extends Component {
                         <tr>
                             <td>Gender Ratio:</td>
                             <td>
-                                <span>{this.state.genderRatioFemale}% Female</span>
-                                <progress
-                                        className="nes-progress is-error"
-                                        value={this.state.genderRatioFemale}
-                                        max="100"
-                                >
-                                </progress>
-                                <span>{this.state.genderRatioMale}% Male</span>
-                                <progress
-                                        className="nes-progress is-primary"
-                                        value={this.state.genderRatioMale}
-                                        max="100"
-                                >
-                                </progress>
+                                { this.state.genderRatioFemale >= 0 ? 
+                                    <div>
+                                        <span>{this.state.genderRatioFemale}% Female</span>
+                                        <progress
+                                                className="nes-progress is-error"
+                                                value={this.state.genderRatioFemale}
+                                                max="100"
+                                        >
+                                        </progress>
+                                        <span>{this.state.genderRatioMale}% Male</span>
+                                        <progress
+                                                className="nes-progress is-primary"
+                                                value={this.state.genderRatioMale}
+                                                max="100"
+                                        >
+                                        </progress>
+                                    </div>
+                                    :
+                                    <span>Genderless</span>
+                                }
                             </td>
                         </tr>
                         </tbody>

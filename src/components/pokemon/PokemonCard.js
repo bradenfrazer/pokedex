@@ -74,9 +74,7 @@ export default class PokemonCard extends Component {
                             onError={() => this.setState({tooManyRequests: true})}
                         />
                         { this.state.tooManyRequests ? (
-                        <h6 className="mx-auto">
-                            <span className="nes-badge badge-danger mt-2">Too many requests</span>
-                        </h6>) : null }
+                        <p className="text-center nes-text is-error mt-2"><small>Too many requests</small></p>) : null }
                             <p className="card-title text-center mt-2">
                                 { this.state.name
                                 .toLowerCase()
