@@ -1,14 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PokemonList from '../pokemon/PokemonList'
 
-export default class Dashboard extends Component {
-    render() {
-        return (
-            <div className="row">
-                <div className="col">
-                <PokemonList />
-                </div>
-            </div>
-        )
-    }
+export default function Dashboard ({pokemonData}) {
+    return (
+            <PokemonList pokemonData={pokemonData} />
+    )
 }
