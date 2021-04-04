@@ -50,7 +50,19 @@ const App = () => {
   function filterPokemon(pokemonData) {
       const filtered = pokemonData
       .filter((pokemon) => {
-        if (pokemon.name.includes(input)) {
+        if (
+          pokemon.name
+          .toLowerCase()
+          .split("-")
+          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(" ")
+          .includes(
+            input
+            .toLowerCase()
+            .split("-")
+            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(" ")
+            )) {
           return true;
         } else {
           return false;
@@ -63,7 +75,7 @@ const App = () => {
       <Router>
         <div className="App" style={{background: `url(${backgroundImage})`}}>
           <nav className="mb-4 p-4">
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="container mx-auto sm:flex sm:justify-between sm:items-center">
               <Link to="/"><span className="nes-text is-error text-lg">Pokedex</span></Link>
               <SearchBar 
                 keyword={input} 
